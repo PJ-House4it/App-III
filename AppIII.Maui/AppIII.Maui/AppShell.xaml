@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Shell
+    x:Class="AppIII.Maui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:view1="clr-namespace:AppIII.Maui.View"
+    FlyoutBehavior="Flyout"
+    Title="App III">
+
+    <ShellContent
+        IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConvert}}"
+        Title="Login"
+        ContentTemplate="{DataTemplate view1:LoginPage}"
+        Route="LoginPage" />
+
+    <ShellContent
+        IsVisible="{Binding IsLoggedIn}"
+        Title="Hjem"
+        ContentTemplate="{DataTemplate view1:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        IsVisible="{Binding IsLoggedIn}"
+        Title="Udstyr"
+        ContentTemplate="{DataTemplate view1:EquipmentPage}"
+        Route="EquipmentPage" />
+
+
+   <Shell.FlyoutFooter>
+       <Button IsVisible="{Binding IsLoggedIn}" Text="Logout" Command="{Binding LogoutCommand}"/>
+   </Shell.FlyoutFooter>
+</Shell>

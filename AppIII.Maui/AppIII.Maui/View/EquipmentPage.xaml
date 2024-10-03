@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:AppIII.Maui.ViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="AppIII.Maui.View.EquipmentPage">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior 
+            EventName="Loaded"
+            Command="{Binding LoadedCommand}"/>
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <Grid Padding="10" RowDefinitions="Auto,*">
+
+            <!-- Column Headers -->
+            <Grid Grid.Row="0" ColumnDefinitions="25,2*,2*"
+                  Padding="5">
+                <Label Text="ID" FontAttributes="Bold" Grid.Column="0" />
+                <Label Text="Navn" FontAttributes="Bold" Grid.Column="1" />
+                <Label Text="Udløbs Dato" FontAttributes="Bold" Grid.Column="2" />
+            </Grid>
+
+            <!-- CollectionView for Equipment Data -->
+            <CollectionView Grid.Row="1" ItemsSource="{Binding Equipments}" 
+                            SelectionMode="None" VerticalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5" ColumnDefinitions="25,2*,2*" >
+
+                            <Label Text="{Binding Id}" 
+                                   Grid.Column="0" VerticalOptions="Center" />
+
+                            <Entry Text="{Binding Name, Mode=TwoWay}" 
+                                   Grid.Column="1" VerticalOptions="Center" />
+
+                            <DatePicker Date="{Binding RetiredDate, Mode=TwoWay}" 
+                                        Grid.Column="2" VerticalOptions="Center" />
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
