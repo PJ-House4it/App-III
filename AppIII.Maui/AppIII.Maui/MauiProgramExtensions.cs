@@ -15,22 +15,14 @@ public static class MauiProgramExtensions
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
             .UseBarcodeReader()
-            .AddInfrastructure()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            });
-        
-        // Pages & ViewModel \\
-        builder.Services.AddSingleton<AppShellViewModel>();
-        builder.Services.AddSingleton<AppShell>();   
-        
-        builder.Services.AddSingleton<LoginPageViewModel>();
-        builder.Services.AddSingleton<LoginPage>();
-        
-        builder.Services.AddSingleton<EquipmentPageViewModel>();
-        builder.Services.AddSingleton<EquipmentPage>();
+            })
+            .AddViewModelsAndPages()
+            .AddInfrastructure();
+
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
