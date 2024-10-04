@@ -1,5 +1,4 @@
-﻿using AppIII.Maui.Infrastructure.Repository;
-using AppIII.Maui.Infrastructure.Services;
+﻿using AppIII.Maui.Infrastructure;
 using AppIII.Maui.View;
 using AppIII.Maui.ViewModel;
 using CommunityToolkit.Maui;
@@ -16,24 +15,12 @@ public static class MauiProgramExtensions
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
             .UseBarcodeReader()
+            .AddInfrastructure()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
-
-        // IServices \\
-        builder.Services.AddSingleton<ILoginService, LoginService>();
-        builder.Services.AddSingleton<IApiService, ApiService>();
-        
-        // Http Client \\
-        builder.Services.AddSingleton(new HttpClient
-        {
-            BaseAddress = new Uri("https://10.130.56.41:5432/")
-        });
-
-        // Repositories \\
-        builder.Services.AddSingleton<IEquipmentRepository, EquipmentRepository>();
         
         // Pages & ViewModel \\
         builder.Services.AddSingleton<AppShellViewModel>();
