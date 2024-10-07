@@ -4,8 +4,9 @@ namespace AppIII.Maui.Infrastructure.Services;
 
 public sealed class LoginService : ILoginService
 {
+    private readonly IUserService _userService;
+    
     private bool _isLoggedIn;
-
     public bool IsLoggedIn
     {
         get => _isLoggedIn;
@@ -17,9 +18,20 @@ public sealed class LoginService : ILoginService
         }
     }
 
-    public void Login()
+    public LoginService(IUserService userService)
     {
+        _userService = userService;
+    }
+
+    public bool Login(string username, string password)
+    {
+        if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            return false;
+        
         IsLoggedIn = true;
+        _userService.SetUser(username);
+
+        return true;
     }
     
     public void Logout()

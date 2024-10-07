@@ -13,7 +13,10 @@ public static class MauiProgramExtensions
     {
         builder
             .UseMauiApp<App>()
-            .UseMauiCommunityToolkit()
+            .UseMauiCommunityToolkit(options =>
+            {
+                options.SetShouldEnableSnackbarOnWindows(true);
+            })
             .UseBarcodeReader()
             .ConfigureFonts(fonts =>
             {

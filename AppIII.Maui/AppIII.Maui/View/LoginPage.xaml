@@ -5,7 +5,9 @@
              x:Class="AppIII.Maui.View.LoginPage">
     <ContentPage.Content>
         <VerticalStackLayout>
-            <Button Text="Login" Command="{Binding LoginCommand}" />
+            <Entry WidthRequest="250" Placeholder="Brugernavn" Text="{Binding Username}" />
+            <Entry WidthRequest="250" IsPassword="True" Placeholder="Password" Text="{Binding Password}" />
+            <Button WidthRequest="250" Text="Login" Command="{Binding LoginCommand}" />
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -10,6 +10,7 @@ public static class DependencyInjection
     public static MauiAppBuilder AddInfrastructure(this MauiAppBuilder builder)
     {
         // IServices \\
+        builder.Services.AddSingleton<IUserService, UserService>();
         builder.Services.AddSingleton<ILoginService, LoginService>();
         builder.Services.AddSingleton<IApiService, ApiService>();
         

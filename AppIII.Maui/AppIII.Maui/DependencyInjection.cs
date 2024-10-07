@@ -14,7 +14,10 @@ public static class DependencyInjection
         builder.Services.AddSingleton<LoginPage>();
         
         builder.Services.AddSingleton<EquipmentPageViewModel>();
-        builder.Services.AddSingleton<EquipmentPage>();
+        builder.Services.AddSingleton<EquipmentPage>();    
+        
+        builder.Services.AddSingleton<MainPageViewModel>();
+        builder.Services.AddSingleton<MainPage>();
         return builder;
     }
 }
