@@ -34,7 +34,7 @@
                             <Entry Text="{Binding Name, Mode=TwoWay}" 
                                    Grid.Column="1" VerticalOptions="Center" />
 
-                            <DatePicker Date="{Binding RetiredDate, Mode=TwoWay}" 
+                            <DatePicker Date="{Binding RetireDate, Mode=TwoWay}" 
                                         Grid.Column="2" VerticalOptions="Center" />
 
                         </Grid>

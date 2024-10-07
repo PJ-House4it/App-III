@@ -7,7 +7,6 @@ public partial class EquipmentPage : ContentPage
     public EquipmentPage(EquipmentPageViewModel viewModel)
     {
         InitializeComponent();
-
         BindingContext = viewModel;
     }
 }

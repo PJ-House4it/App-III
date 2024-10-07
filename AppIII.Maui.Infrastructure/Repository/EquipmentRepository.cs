@@ -16,7 +16,7 @@ public class EquipmentRepository : IEquipmentRepository
     {
         try
         {
-            return await _apiService.GetAsync<List<Equipment>>("equipment");
+            return await _apiService.GetAsync<List<Equipment>>("AppIII.API/API/Equipment/GetAllEquipment");
         }
         catch (Exception)
         {

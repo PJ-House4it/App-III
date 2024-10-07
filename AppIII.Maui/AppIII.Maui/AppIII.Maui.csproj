@@ -48,4 +48,8 @@
       <ProjectReference Include="..\..\AppIII.Maui.Infrastructure\AppIII.Maui.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Resources\xml\network_security_config.xml" />
+    </ItemGroup>
+
 </Project>

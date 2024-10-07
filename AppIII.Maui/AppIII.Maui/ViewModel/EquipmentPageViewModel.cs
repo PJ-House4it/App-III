@@ -21,6 +21,11 @@ public partial class EquipmentPageViewModel : ObservableObject
     private async Task OnLoaded()
     {
         List<Equipment>? equipments = await _equipmentRepository.GetAllEquipmentAsync();
-        Equipments = new ObservableCollection<Equipment>(equipments ?? []);
+        Equipments = new ObservableCollection<Equipment>(equipments ?? [new Equipment
+        {
+            Id = 404,
+            Name = "Noget gik sku galt!",
+            RetireDate = new DateTime(4200, 6, 9)
+        }]);
     }
 }
