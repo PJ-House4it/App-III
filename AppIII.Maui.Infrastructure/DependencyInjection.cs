@@ -22,6 +22,7 @@ public static class DependencyInjection
 
         // Repositories \\
         builder.Services.AddSingleton<IEquipmentRepository, EquipmentRepository>();
+        builder.Services.AddSingleton<IUserRepository, UserRepository>();
         return builder;
     }
 }

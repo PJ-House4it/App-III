@@ -1,7 +1,8 @@
 ﻿namespace AppIII.Maui.Infrastructure.Model;
 
-public class User(string username)
+public class User
 {
-    public string Username { get; private set; } = username;
-    public UserPermission Permission { get; private set; } = UserPermission.Admin;
+    public int Id { get; set; }
+    public string Username { get; set; }
+    public UserPermission Permission { get; set; }
 }

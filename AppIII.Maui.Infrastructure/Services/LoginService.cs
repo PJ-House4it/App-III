@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using AppIII.Maui.Infrastructure.Model;
 
 namespace AppIII.Maui.Infrastructure.Services;
 
@@ -29,7 +30,12 @@ public sealed class LoginService : ILoginService
             return false;
         
         IsLoggedIn = true;
-        _userService.SetUser(username);
+        _userService.User = new User
+        {
+            Id = 0,
+            Username = username,
+            Permission = UserPermission.Admin
+        };
 
         return true;
     }

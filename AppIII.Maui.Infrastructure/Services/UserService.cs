@@ -4,10 +4,6 @@ namespace AppIII.Maui.Infrastructure.Services;
 
 public class UserService : IUserService
 {
-    public User User { get; private set; }
+    public User User { get; set; }
     
-    public void SetUser(string username)
-    {
-        User = new User(username);
-    }
 }

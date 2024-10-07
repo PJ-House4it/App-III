@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="AppIII.Maui.View.UsersPage">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Loaded"
+                                        Command="{Binding LoadedCommand}" />
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <VerticalStackLayout>
+            <Grid Padding="10" RowDefinitions="Auto,*">
+
+                <!-- Column Headers -->
+                <Grid Grid.Row="0" ColumnDefinitions="25,2*,2*" Padding="5">
+                    <Label Text="ID" FontAttributes="Bold" Grid.Column="0" />
+                    <Label Text="Navn" FontAttributes="Bold" Grid.Column="1" />
+                    <Label Text="Bruger Type" FontAttributes="Bold" Grid.Column="2" />
+                </Grid>
+
+                <!-- CollectionView for Users Data -->
+                <CollectionView x:Name="UserView" Grid.Row="1" ItemsSource="{Binding Users}"
+                                SelectionMode="None" VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5" ColumnDefinitions="25,2*,2*">
+
+                                <Label Text="{Binding Id}" Grid.Column="0" VerticalOptions="Center" />
+                                <Label Text="{Binding Username}" Grid.Column="1" VerticalOptions="Center" />
+
+                                <Picker x:Name="Picker" Grid.Column="2" VerticalOptions="Center"
+                                        SelectedItem="{Binding Permission, Mode=TwoWay}" 
+                                        ItemsSource="{Binding Source={RelativeSource AncestorType={x:Type CollectionView}}, Path=BindingContext.UserPermissions}"
+                                        ItemDisplayBinding="{Binding .}">
+                                    <Picker.Behaviors>
+                                        <toolkit:EventToCommandBehavior 
+                                            EventName="SelectedIndexChanged" 
+                                            Command="{Binding Source={x:Reference UserView}, Path=BindingContext.PermissionIndexChangedCommand}"
+                                            CommandParameter="{Binding .}"/>
+                                    </Picker.Behaviors>
+                                </Picker>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>
