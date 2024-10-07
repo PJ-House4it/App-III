@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Globalization;
 using AppIII.Maui.Infrastructure.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -20,7 +21,6 @@ public partial class AppShellViewModel : ObservableObject
     {
         _loginService.Logout();
         await Shell.Current.GoToAsync("//LoginPage");
-
     }
         
     private void LoginService_PropertyChanged(object? sender, PropertyChangedEventArgs e)

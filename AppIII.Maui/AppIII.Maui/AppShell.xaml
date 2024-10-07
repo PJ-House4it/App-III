@@ -25,9 +25,8 @@
         Title="Udstyr"
         ContentTemplate="{DataTemplate view1:EquipmentPage}"
         Route="EquipmentPage" />
-
-
-   <Shell.FlyoutFooter>
-       <Button IsVisible="{Binding IsLoggedIn}" Text="Logout" Command="{Binding LogoutCommand}"/>
-   </Shell.FlyoutFooter>
+    
+    <Shell.FlyoutFooter>
+        <Button WidthRequest="225" IsVisible="{Binding IsLoggedIn}" Text="Logout" Command="{Binding LogoutCommand}" />
+    </Shell.FlyoutFooter>
 </Shell>

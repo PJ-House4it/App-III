@@ -1,13 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:AppIII.Maui.Resources.Strings"
              x:Class="AppIII.Maui.View.LoginPage">
     <ContentPage.Content>
         <VerticalStackLayout>
-            <Entry WidthRequest="250" Placeholder="Brugernavn" Text="{Binding Username}" />
-            <Entry WidthRequest="250" IsPassword="True" Placeholder="Password" Text="{Binding Password}" />
-            <Button WidthRequest="250" Text="Login" Command="{Binding LoginCommand}" />
+            <Entry WidthRequest="250"
+                   Placeholder="{x:Static resx:AppResources.UsernamePlaceholder}" 
+                   Text="{Binding Username}" />
+            <Entry WidthRequest="250"
+                   IsPassword="True"
+                   Placeholder="{x:Static resx:AppResources.PasswordPlaceholder}" 
+                   Text="{Binding Password}" />
+            <Button WidthRequest="250"
+                    Text="{x:Static resx:AppResources.LoginButton}"
+                    Command="{Binding LoginCommand}" />
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
