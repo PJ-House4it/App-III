@@ -33,6 +33,6 @@
         Route="UsersPage" />
     
     <Shell.FlyoutFooter>
-        <Button WidthRequest="225" IsVisible="{Binding IsLoggedIn}" Text="Logout" Command="{Binding LogoutCommand}" />
+        <Button Padding="5" WidthRequest="225" IsVisible="{Binding IsLoggedIn}" Text="Logout" Command="{Binding LogoutCommand}" />
     </Shell.FlyoutFooter>
 </Shell>

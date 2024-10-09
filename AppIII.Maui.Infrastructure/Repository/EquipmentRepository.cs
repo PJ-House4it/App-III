@@ -16,38 +16,11 @@ public class EquipmentRepository : IEquipmentRepository
     {
         try
         {
-            return await _apiService.GetAsync<List<Equipment>>("AppIII.API/API/Equipment/GetAllEquipment");
+            return await _apiService.GetAsync<List<Equipment>>("Equipment/GetAll");
         }
         catch (Exception)
         {
             return null;
         }
-    }
-
-    public async Task<Equipment?> GetEquipmentByIdAsync(int id)
-    {
-        try
-        {
-            return await _apiService.GetAsync<Equipment>($"equipment/{id}");
-        }
-        catch (Exception)
-        {
-            return null;
-        }
-    }
-
-    public async Task<bool> AddEquipmentAsync(Equipment equipment)
-    {
-        return await _apiService.PostAsync("equipment", equipment);
-    }
-
-    public async Task<bool> UpdateEquipmentAsync(int id, Equipment equipment)
-    {
-        return await _apiService.PutAsync($"equipment/{id}", equipment);
-    }
-
-    public async Task<bool> DeleteEquipmentAsync(int id)
-    {
-        return await _apiService.DeleteAsync($"equipment/{id}");
     }
 }

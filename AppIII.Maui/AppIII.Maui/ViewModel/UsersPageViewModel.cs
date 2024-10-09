@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
 using AppIII.Maui.Infrastructure.Model;
 using AppIII.Maui.Infrastructure.Repository;
 using CommunityToolkit.Mvvm.ComponentModel;

@@ -16,7 +16,7 @@ public class UserRepository : IUserRepository
     {
         try
         {
-            return await _apiService.GetAsync<List<User>>("AppIII.API/API/User/GetAllUsers");
+            return await _apiService.GetAsync<List<User>>("User/GetAll");
         }
         catch (Exception)
         {

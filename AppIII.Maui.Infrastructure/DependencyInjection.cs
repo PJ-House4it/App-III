@@ -17,7 +17,7 @@ public static class DependencyInjection
         // Http Client \\
         builder.Services.AddSingleton(new HttpClient
         {
-            BaseAddress = new Uri("http://10.130.56.41/")
+            BaseAddress = new Uri("http://10.130.56.41/AppIII.API/API/")
         });
 
         // Repositories \\
