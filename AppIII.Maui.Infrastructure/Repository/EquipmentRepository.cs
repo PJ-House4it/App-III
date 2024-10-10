@@ -18,9 +18,14 @@ public class EquipmentRepository : IEquipmentRepository
         {
             return await _apiService.GetAsync<List<Equipment>>("Equipment/GetAll");
         }
-        catch (Exception)
+        catch (Exception exception)
         {
-            return null;
+            return new List<Equipment>([new Equipment
+            {
+                Id = 0,
+                Name = exception.Message,
+                RetireDate = DateTime.UtcNow
+            }]);
         }
     }
 }
